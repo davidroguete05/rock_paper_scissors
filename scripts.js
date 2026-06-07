@@ -11,4 +11,11 @@
 				return "scissors"
 			}
 		}
+
+    //2. Write a function to allow the user to choose among the three options rock paper or scissors
+    function getHumanChoice(){
+      let humanChoice = prompt("rock, paper or scissors? ")
+      return humanChoice
+    }
+    console.log(getHumanChoice())
 		console.log(getComputerChoice());
