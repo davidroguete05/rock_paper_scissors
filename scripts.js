@@ -19,7 +19,7 @@ function getComputerChoice(max=3, min=1){
 
     //2. Write a function to allow the user to choose among the three options rock paper or scissors
 function getHumanChoice(){
-  let humanChoice = prompt("rock, paper or scissors? ");
+  let humanChoice = prompt("rock, paper or scissors? ").toLowerCase(); //Make user input case-insensitive
   return humanChoice;
 }
 console.log(getHumanChoice());
