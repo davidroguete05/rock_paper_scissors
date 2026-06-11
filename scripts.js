@@ -29,20 +29,23 @@ function getHumanChoice(){
 //3.Write the logic for a single round
 //SET function playRound with two parameters humanChoice and computerChoice
 function playRound(humanChoice, computerChoice){
-    return result = (humanChoice === computerChoice) ? "tie":
-    (humanChoice === "rock" && computerChoice === "scissors") ? "win":
-    (humanChoice === "paper" && computerChoice === "rock") ? "win":
-    (humanChoice === "scissors" && computerChoice === "paper") ? "win":
-    "lose";
+    if (humanChoice === computerChoice){
+      return "tie";
+    } else if(humanChoice === "rock" && computerChoice === "scissors" ||
+      humanChoice === "paper" && computerChoice === "rock" ||
+      humanChoice === "scissors" && computerChoice === "paper"){
+        humanScore++;
+        return "win";
+      } else{
+          computerScore++;
+          return "lose";
+        }
 }
-
 //4. Write a function called playGame that execute, record scores and declare a winner
 /*INIT function playGame 
 Declare variable humanScore
 Declare variable computerScore
-Declare variable roundCounter
-CALL playRound
-Reduce roundCounter every round
+CALL playRound 5 times
 IF (roundCounter less than or equal to 0)
   IF humanScore === computerScore
     Show in the screen IT was a draw game
