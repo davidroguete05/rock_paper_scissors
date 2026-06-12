@@ -1,11 +1,4 @@
-// Algorithm rock paper scissors
-
-//Declare variables for both human and computer scores
-
-let humanScore = 0;
-let computerScore = 0;
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// Game rock paper scissors
 
 //1. Write a function to allow the pc to choose a random number between 1 and 3
 function getComputerChoice(max=3, min=1){
@@ -45,30 +38,37 @@ function playRound(humanChoice, computerChoice){
         }
 }
 
-playRound(humanSelection, computerSelection)
-//4. Write a function called playGame that execute, record scores and declare a winner
-/*INIT function playGame 
-Declare variable humanScore
-Declare variable computerScore
-CALL playRound 5 times
-IF (roundCounter less than or equal to 0)
-  IF humanScore === computerScore
-    Show in the screen IT was a draw game
-  ELSE IF humanScore > computerScore
-    Show in the screen YOU won the game!
-  ELSE
-    Showw in the screen you lose the game
-ELSE
-  IF playRound is equal to "tie"
-    Do not update scores
-    alert technical tie
-    CALL playround
-  ELSE IF playRound is equal to "win"
-    Sum 1 point to humanScore
-    alert you won this round
-    CALL playRound
-  ELSE
-    Sum 1 point to computer score
-    alert you lose this option wins that option
-    CALL playRound
-*/ 
+//4.Write the logic to play the game including playRound within it
+function playGame(){
+  function playRound(humanChoice, computerChoice){
+    if (humanChoice === computerChoice){
+      console.log("It's a tie!");
+      return "tie";
+    } else if(humanChoice === "rock" && computerChoice === "scissors" ||
+      humanChoice === "paper" && computerChoice === "rock" ||
+      humanChoice === "scissors" && computerChoice === "paper"){
+        console.log(`You win ${humanChoice} beats ${computerChoice}!`);
+        humanScore++;
+        return "win";
+      } else{
+        console.log(`You lose ${computerChoice} beats ${humanChoice}!`)
+          computerScore++;
+          return "lose";
+        }
+}
+  let humanScore = 0;
+  let computerScore = 0;
+  playRound(getHumanChoice(),getComputerChoice())
+  playRound(getHumanChoice(),getComputerChoice())
+  playRound(getHumanChoice(),getComputerChoice())
+  playRound(getHumanChoice(),getComputerChoice())
+  playRound(getHumanChoice(),getComputerChoice())
+  if (humanScore === computerScore){
+    console.log("There was no winner...Its a tie!")
+  } else if (humanScore > computerScore){
+    console.log(`You won by "skills" ${humanScore} to ${computerScore}`)
+  } else{
+    console.log(`You were fool by randomness ${computerScore} to ${humanScore}`)
+  }
+}
+playGame()
