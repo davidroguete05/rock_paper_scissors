@@ -19,25 +19,6 @@ function getHumanChoice(){
   return humanChoice;
 }
 
-//3.Write the logic for a single round
-//SET function playRound with two parameters humanChoice and computerChoice
-function playRound(humanChoice, computerChoice){
-    if (humanChoice === computerChoice){
-      console.log("It's a tie!");
-      return "tie";
-    } else if(humanChoice === "rock" && computerChoice === "scissors" ||
-      humanChoice === "paper" && computerChoice === "rock" ||
-      humanChoice === "scissors" && computerChoice === "paper"){
-        console.log(`You win ${humanChoice} beats ${computerChoice}!`);
-        humanScore++;
-        return "win";
-      } else{
-        console.log(`You lose ${computerChoice} beats ${humanChoice}!`)
-          computerScore++;
-          return "lose";
-        }
-}
-
 //4.Write the logic to play the game including playRound within it
 function playGame(){
   function playRound(humanChoice, computerChoice){
